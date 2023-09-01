@@ -1,10 +1,16 @@
+//Adrián López 231361
+//Programación Orientada a Objetos
+
+// Se importa la clase Scanner para la entrada de usuario.
 import java.util.Scanner;
 
+// Definición de la clase Main (Programa Principal).
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) { // Creación de una instancia de Universidad y un objeto Scanner para la entrada de usuario.
         Universidad universidad = new Universidad();
         Scanner scanner = new Scanner(System.in);
 
+        // Bucle principal que muestra un menú de opciones al usuario.
         while (true) {
             System.out.println("\nMenú:");
             System.out.println("1. Registrar Estudiante");
@@ -15,6 +21,7 @@ public class Main {
             System.out.print("Seleccione una opción: ");
             int opcion = scanner.nextInt();
 
+            // Switch para manejar las opciones del usuario.
             switch (opcion) {
                 case 1:
                     registrarEstudiante(universidad);
@@ -35,6 +42,7 @@ public class Main {
         }
     }
 
+    // Método para registrar un estudiante.
     private static void registrarEstudiante(Universidad universidad) {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Ingrese los datos del estudiante:");
@@ -49,6 +57,7 @@ public class Main {
         System.out.print("Correo electrónico: ");
         String correo = scanner.nextLine();
 
+        // Creación de un objeto Estudiante con los datos ingresados por el usuario.
         Estudiante estudiante = new Estudiante(nombre, apellido, codigo, fechaNacimiento, correo);
         Sede sede = seleccionarSede(universidad);
 
@@ -60,6 +69,7 @@ public class Main {
         }
     }
 
+    // Método para ingresar resultados de exámenes para un estudiante.
     private static void ingresarResultados(Universidad universidad) {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Ingrese el código único del estudiante: ");
@@ -83,10 +93,12 @@ public class Main {
         System.out.println("Estudiante no encontrado.");
     }
 
+    // Método para mostrar estadísticas de exámenes para todas las sedes y estudiantes.
     private static void mostrarEstadisticas(Universidad universidad) {
         universidad.obtenerEstadisticasExamenes();
     }
 
+    // Método para seleccionar una sede de la universidad.
     private static Sede seleccionarSede(Universidad universidad) {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Sedes disponibles:");
